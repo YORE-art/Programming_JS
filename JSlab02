@@ -1,0 +1,40 @@
+let score = 0;
+let username = 'York';
+
+for (let i = 0; i < 5; i++) {
+    score += 1;
+}
+console.log(username, score);
+
+let items = ['apple', 'banana', 'orange', 'grape', 'kiwi'];
+console.log(items[2]);
+console.log(items[3]);
+
+let playerScore = 0;
+for (let i = 0; i < 10; i++) {
+    playerScore += 1;
+}
+
+function updateScore() {
+    playerScore += 1;
+}
+
+function displayScore() {
+    console.log('Player Score:', playerScore);
+}
+
+if (playerScore > 5) {
+    displayScore();
+} else {
+    updateScore();
+}
+
+function checkScoreParity() {
+    if (playerScore % 2 === 0) {
+        console.log('Player score is even');
+    } else {
+        console.log('Player score is odd');
+    }
+}
+
+checkScoreParity();
