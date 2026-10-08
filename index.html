@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Weather Web App
+    </title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        #weather-app {
+            min-height: 100vh;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            background: #000000;
+            color: #ffffff;
+        }
+
+        #city-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #444444;
+            border-radius: 6px;
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #222222;
+        }
+    </style>
+</head>
+<body>
+    <div id="weather-app">
+        <h1>
+            Global Weather Search Web 
+        </h1>
+
+        <div id="city-buttons"></div>
+        
+        <hr>
+
+        <div id="weather-info">
+            <h2 id="city-name">Please enter a city name</h2>
+            <p>Temperature: <span id="temperature"></span> degrees Celsius</p>
+            <p>Humidity: <span id="humidity"></span>%</p>
+            <p>Wind Speed: <span id="wind-speed"></span> mph</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
