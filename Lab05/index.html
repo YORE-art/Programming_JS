@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Music Player</title>
+    </head>
+    <body>
+        <h1>Music Player</h1>
+        <label for="genre-select">Select a music genre:</label>
+        <select id="genre-select">
+            <option value="all">All</option>
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="jazz">Jazz</option>
+        </select>
+        <br><br>
+
+        <label for="track-count">Track Count:</label>
+        <input type="number" id="track-count" min="1" value="4" max="10">
+
+        <button id="generate-btn">generate playlist</button>
+
+        <hr>
+
+        <h3>Playlist:</h3>
+        <ul id="playlist"></ul>
+
+        <script src="script.js"></script>
+    </body>
+</html>
