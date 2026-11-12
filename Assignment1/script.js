@@ -6,12 +6,12 @@ const cities = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-    createCitybuttons();
+    createCityButtons();
     fetchWeatherData(cities[0].lat, cities[0].lon, cities[0].name);
 });
 
-function createCitybuttons() {
-    const cityButtonsContainer = document.getElementById("city-buttons");
+function createCityButtons() {
+    const container = document.getElementById("city-buttons");
 
     cities.forEach(function(city) {
         const button = document.createElement("button");
@@ -21,38 +21,38 @@ function createCitybuttons() {
             fetchWeatherData(city.lat, city.lon, city.name);
         });
 
-        cityButtonsContainer.appendChild(button);
+        container.appendChild(button);
     });
 }
 
 function fetchWeatherData(lat, lon, cityName) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&wind_speed_unit=mph`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m`;
 
     fetch(url)
         .then(function(response) {
             if (!response.ok) {
-                throw new Error("Weather request failed: " + response.status);
+                throw new Error("Weather request failed");
             }
+
             return response.json();
         })
         .then(function(data) {
             displayWeatherData(data, cityName);
         })
         .catch(function(error) {
-            console.error("Error fetching weather data:", error);
-            document.getElementById("city-name").textContent = "Unable to load weather data";
+            console.error("Weather error:", error);
         });
 }
 
 function displayWeatherData(data, cityName) {
-    const current = data.current;
-
-    if (!current) {
-        throw new Error("Current weather data is unavailable");
-    }
-
     document.getElementById("city-name").textContent = cityName;
-    document.getElementById("temperature").textContent = current.temperature_2m;
-    document.getElementById("humidity").textContent = current.relative_humidity_2m;
-    document.getElementById("wind-speed").textContent = current.wind_speed_10m;
+
+    document.getElementById("temperature").textContent =
+        data.current.temperature_2m;
+
+    document.getElementById("humidity").textContent =
+        data.current.relative_humidity_2m;
+
+    document.getElementById("wind-speed").textContent =
+        data.current.wind_speed_10m;
 }
